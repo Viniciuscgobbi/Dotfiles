@@ -1,0 +1,465 @@
+;#######################################;
+;#################Cores#################;
+;#######################################;
+[colors]
+background = ${xrdb:color0:#222}
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
+;background = ${xrdb:color0:#222}
+;background = #2e3440
+;background = #363636
+;background-alt = #444
+;foreground = ${xrdb:color7:#222}
+;foreground = #FFFFFF
+;foreground-alt = #555
+;primary = #ffb52a
+;secondary = #e60053
+;alert = #bd2c40
+;######################################;
+;#############Módulo bateria###########;
+;######################################;
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+
+format-charging = <ramp-capacity> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full-prefix = "  " 
+label-discharging = %percentage%%
+label-charging =  %percentage%%
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-framerate = 750
+;############################################;
+;##############Módulo pulseaudio#############;
+;############################################;
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume =  <label-volume>
+label-volume =  %percentage%%
+label-muted =  
+label-muted-foreground = #666
+
+click-right = pavucontrol
+;############################################;
+;##############Módulo wifi###################;
+;############################################;
+[module/wireless-network]
+type = internal/network
+interface = wlan0
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid%
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-5 = 
+
+[module/separator]
+type = custom/text
+content =|
+content-foreground = #fff
+content-padding = 4
+;############################################;
+;###########Módulo data e hora###############;
+;############################################;
+[module/date]
+type = internal/date
+interval = 5
+
+ date-alt = " %A, %d-%m-%Y%"
+date ="  %H:%M"
+label =   %date%
+;###########################################;
+;#############módulo desligar###############;
+;###########################################;
+
+[module/desligar]
+type = custom/menu
+
+menu-0-0 = Power   
+menu-0-0-exec = poweroff
+menu-0-1 = Reboot   
+menu-0-1-exec = reboot
+
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close = 
+label-separator = |
+
+;###########################################;
+;##############Modulo BSPWM#################;
+;###########################################;
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= #BA68C8
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+
+;###########################################;
+;###########Modulo I3#######################;
+;###########################################;
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-padding = ${module/bspwm.label-focused-padding}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
+
+; Separator in between workspaces
+label-separator = |
+	
+;###########################################;
+;#############Modulo CPU####################;
+;###########################################;
+[module/cpu]
+type = internal/cpu
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+label =  %percentage%%
+;###########################################; 
+;########Modulo titulo######################;
+;###########################################;
+[module/title]
+type = internal/xwindow
+
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 50
+
+
+; Used instead of label when there is no window title
+; Available tokens:
+;   None
+label-empty = Desktop
+label-empty-foreground = #707880
+
+
+;###########################################;
+;##########Modulo RAM#######################;
+;###########################################;
+
+[module/memory]
+type = internal/memory
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 3
+label =  %percentage_used%%
+
+;###########################################;
+;#########Configuração cmus#################;
+;###########################################;
+
+;------modulo cmus -------------;
+[module/cmus]
+type = custom/script
+exec = sh $HOME/.config/polybar/scripts/cmus.sh
+click-left = sh $HOME/.config/polybar/scripts/open_cmus.sh
+click-right = cmus-remote -C wq
+label = %output%
+interval = 1
+
+;-------modulo-cmus-repeat-----;
+[module/repeat]
+type = custom/script
+exec = sh $HOME/.config/polybar/scripts/repeat.sh
+click-left = sh $HOME/.config/polybar/scripts/func_repeat.sh
+label = %output%
+interval = 1
+
+;------ modulo-cmus-next ------;
+[module/next]
+type = custom/script
+
+click-left = cmus-remote -n
+exec = sh $HOME/.config/polybar/scripts/next.sh
+label = %output%
+interval = 1
+
+;------modulo-cmus-play---------;
+[module/play]
+type = custom/script
+
+click-left = cmus-remote -u
+exec = sh $HOME/.config/polybar/scripts/play.sh
+label = %output%
+interval = 1
+
+;------modulo-cmus-prev---------;
+[module/prev]
+type = custom/script
+
+click-left = cmus-remote -r
+exec = sh $HOME/.config/polybar/scripts/prev.sh
+
+label = %output%
+interval = 1
+
+;------modulo-cmus-shuffle---------;
+[module/shuffle]
+type = custom/script
+
+click-left = cmus-remote -S
+exec = sh $HOME/.config/polybar/scripts/shuffle.sh
+
+label = %output%
+interval = 1
+
+;----------volume-cmus------------;
+[module/cmusvol]
+type = custom/script
+exec = sh ~/.config/polybar/scripts/cmusvol.sh 
+label = %output%
+interval = 1
+
+;-----modulo-volume-add--------;
+[module/voladd]
+type = custom/script
+exec = sh ~/.config/polybar/scripts/voladd.sh
+label = %output%
+click-left = cmus-remote -v +10%
+interval = 1
+
+;-----modulo-volume-rem--------;
+[module/volrem]
+type = custom/script
+exec = sh ~/.config/polybar/scripts/volrem.sh
+label = %output%
+click-left = cmus-remote -v -10%
+interval = 1
+
+
+;###########################################;
+;############Modulo Rofi####################;
+;###########################################;
+[module/rofi]
+type = custom/text
+content = " "
+content-foreground = ${colors.foreground}
+click-left = rofi -show drun
+
+
+;###########################################;
+;############modulo armazenamento###########;
+;###########################################;
+[module/storage]
+type = custom/script
+click-left = nautilus
+exec = sh $HOME/.config/polybar/scripts/storage.sh
+exec-if = pgrep -x polybar
+label = %output%
+interval = 1
+
+;###########################################;
+;##########modulo i3-lock###################;
+;###########################################;
+[module/lock]
+type = custom/text
+content = " "
+content-foreground = ${colors.foreground}
+#content-underline = ${colors.foreground}
+click-left = lockscreen &
+
+
+;###########################################;
+;##########Barra de cima####################;
+;###########################################;
+[bar/upbar]
+
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 24
+;radius = 5
+;offset-x = 13%
+;offset-y = 1%
+;bottom = true
+fixed-center = true
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 1
+line-color = #f00
+
+border-left = 20
+border-right = 20
+border-top = 8
+border-bottom = 2
+radius = 12
+
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-1 = "FiraCode Nerd Font Mono :pixelsize=11;1"
+font-2 = "monoespace :pixelsize=10;1"
+font-3 = "Wucon Siji:pixelsize=10;1"
+font-0 = "Hack Nerd Font :pixelsize= 9;1"
+
+
+modules-left = i3 title
+modules-center = 
+modules-right = cpu memory storage battery pulseaudio wireless-network date desligar 
+
+;wm-restack = bspwm
+wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+;###########################################;
+;###############Barra de baixo##############;
+;###########################################;
+[bar/downbar]
+;-------- Sys tray---------;
+tray-position = right
+tray-detached = true
+tray-scale = 1.0
+tray-padding = 5%
+;--------------------------;
+width = 100%
+#width = 80%
+height = 24
+#offset-x = 10%
+#pffset-y = 4px
+#override-redirect = true
+radius = 12 
+fixed-center = true
+bottom = true
+enable-ipc = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = ${colors.foreground}
+
+border-left = 20
+border-right = 20
+border-top = 2
+border-bottom = 8
+#border-color = ${colors.foreground}
+
+#border-top-size = 1
+#border-top-color = ${colors.foreground}
+
+padding-left = 0
+padding-right = 0 
+
+module-margin-left = 0
+module-margin-right = 1
+
+font-3 = "FiraCode Nerd Font Mono :pixelsize=10;1"
+font-1 = "monoespace :pixelsize=3;1"
+font-2 = "Wucon Siji:pixelsize=10;1"
+font-0 = "Hack Nerd Font :pixelsize= 9;1"
+
+modules-center = cmusvol prev play cmus next shuffle repeat volrem voladd
+
+;wm-restack = bspwm
+wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
+
+[settings]
+screenchange-reload = true
+compositing-background = over
+compositing-foreground = over
+compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+
