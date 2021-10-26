@@ -1,18 +1,17 @@
 # Minhas configurações atuais:
-- OS: Debian 11
+- OS: Arch Linux
 - WM : I3wm
 - Barra de estado: Polybar
-- Navegador: Google Chrome
+- Navegador: Ungoogled Chromium
 - Emulador de terminal: alacritty
 - Music player: cmus
-- Video player: MPV/VLC
-- Tela de bloqueio: i3-lock
+- Video player: MPV
 
 ----------------------------------------
 Fotos:
 
-![](https://cdn.discordapp.com/attachments/806642907263139850/854054155101536316/unknown.png)
+![](https://github.com/Androwinbr/Dotfiles/blob/master/2021-10-26_17-15.png?raw=true)
 
 ------------------------------------------
 
-![](https://cdn.discordapp.com/attachments/806642907263139850/854054480588308530/unknown.png)
+
