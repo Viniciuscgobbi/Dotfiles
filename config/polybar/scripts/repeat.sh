@@ -4,9 +4,9 @@ poly_repeat() {
 REPEAT=$(cmus-remote -Q | grep 'repeat_current' | awk '{print $3}')
 STATUS=" "
 if [ "$REPEAT" = "false" ]; then
-    STATUS="  "
+    STATUS=""
 else
-    STATUS="  "
+    STATUS=""
 fi
 printf "$STATUS"
 }

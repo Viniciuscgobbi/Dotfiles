@@ -67,7 +67,7 @@ click-right = pavucontrol
 [module/wireless-network]
 type = internal/network
 interface = wlan0
-format-connected = <ramp-signal> <label-connected>
+format-connected = 
 label-connected = %essid%
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -88,8 +88,10 @@ content-padding = 4
 type = internal/date
 interval = 5
 
- date-alt = " %A, %d-%m-%Y%"
-date ="  %H:%M"
+  date-alt = " %H:%M"
+ ;date-alt = " %A, %d-%m-%Y%"
+;date ="  %H:%M"
+date = ""
 label =   %date%
 ;###########################################;
 ;#############módulo desligar###############;
@@ -195,7 +197,7 @@ type = internal/xwindow
 ;   %title%
 ; Default: %title%
 label = %title%
-label-maxlen = 50
+label-maxlen = 30
 
 
 ; Used instead of label when there is no window title
@@ -336,8 +338,14 @@ click-left = lockscreen &
 ;##########Barra de cima####################;
 ;###########################################;
 [bar/upbar]
+;-------- Sys tray---------;
+tray-position = right
+tray-detached = false
+tray-scale = 1.0
+tray-padding = 1%
+;--------------------------;
 
-;monitor = ${env:MONITOR:HDMI-1}
+#monitor = ${env:MONITOR:}
 width = 100%
 height = 24
 ;radius = 5
@@ -362,7 +370,7 @@ padding-left = 2
 padding-right = 2
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
 font-1 = "FiraCode Nerd Font Mono :pixelsize=11;1"
 font-2 = "monoespace :pixelsize=10;1"
@@ -370,9 +378,9 @@ font-3 = "Wucon Siji:pixelsize=10;1"
 font-0 = "Hack Nerd Font :pixelsize= 9;1"
 
 
-modules-left = i3 title
-modules-center = 
-modules-right = cpu memory storage battery pulseaudio wireless-network date desligar 
+modules-left = i3 
+modules-center = prev play cmus next shuffle repeat
+modules-right = battery pulseaudio wireless-network date desligar 
 
 ;wm-restack = bspwm
 wm-restack = i3
@@ -391,12 +399,7 @@ cursor-scroll = ns-resize
 ;###############Barra de baixo##############;
 ;###########################################;
 [bar/downbar]
-;-------- Sys tray---------;
-tray-position = right
-tray-detached = true
-tray-scale = 1.0
-tray-padding = 5%
-;--------------------------;
+
 width = 100%
 #width = 80%
 height = 24
@@ -434,7 +437,7 @@ font-1 = "monoespace :pixelsize=3;1"
 font-2 = "Wucon Siji:pixelsize=10;1"
 font-0 = "Hack Nerd Font :pixelsize= 9;1"
 
-modules-center = cmusvol prev play cmus next shuffle repeat volrem voladd
+;modules-center = cmusvol prev play cmus next shuffle repeat volrem voladd
 
 ;wm-restack = bspwm
 wm-restack = i3

@@ -3,9 +3,9 @@
 poly_shuffle() {
 SHUFFLE=$(cmus-remote -Q | grep 'shuffle' | awk '{print $3}')
 if [ "$SHUFFLE" = "true" ]; then
-printf "    "
+printf ""
 else
-printf "    "
+printf ""
 fi
 }
 

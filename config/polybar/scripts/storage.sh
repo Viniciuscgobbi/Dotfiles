@@ -5,7 +5,7 @@ storage() {
     FREE=$(df -h / | grep '/'| awk '{print $3}')
     PERCENT=$(df -h / | grep '/'| awk '{print $5}')
 
-    printf "  $FREE/$TOTAL $PERCENT%"
+    printf " $FREE/$TOTAL $PERCENT%"
 }
 
 storage

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PREV=$(echo '   ')
+PREV=$(echo '')
 mainf() {
 if pgrep -x cmus >/dev/null
 then

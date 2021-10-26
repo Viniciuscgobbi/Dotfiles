@@ -285,9 +285,9 @@
 
 [urgency_low]
     #background = "#2e3440"
-    background = "#0D0E15"
+    background = '#0E0402'
     foreground = "#FFFFFF"
-    frame_color = "#4C566F"
+    frame_color = "#9C5D1C"
     #frame_color = "#81A1C1"
     timeout = 4
     # Icon for notifications with low urgency, uncomment to enable
@@ -295,9 +295,9 @@
 
 [urgency_normal]
     #background = "#2e3440"
-    background = "#0D0E15"
+    background = '#0E0402'
     foreground = "#FFFFFF"
-    frame_color = "#4C566F"
+    frame_color = "#9C5D1C'"
     #frame_color = "#81A1C1"
     timeout = 6
     # Icon for notifications with normal urgency, uncomment to enable
@@ -305,9 +305,9 @@
 
 [urgency_critical]
     #background = "#2e3440"
-    background = "#0D0E15"
+    background = '#0E0402'
     foreground = "#FFFFFF"
-    frame_color = "#4C566F"
+    frame_color = "#9C5D1C"
     #frame_color = "#81A1C1"
     timeout = 8
     # Icon for notifications with critical urgency, uncomment to enable

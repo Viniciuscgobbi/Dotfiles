@@ -1,6 +1,6 @@
 #!/bin/sh
 
-NEXT=$(echo )
+NEXT=$(echo '')
 
 mainf() {
 if pgrep -x cmus >/dev/null

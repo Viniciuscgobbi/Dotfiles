@@ -2,9 +2,9 @@
 poly_play() {
 STATUS=$(cmus-remote -Q | grep -a '^status' | awk '{gsub("status ", "");print}')
 if [ "$STATUS" = "playing" ]; then
-    STATUS="  "
+    STATUS=""
 else
-    STATUS="  "
+    STATUS=""
 fi
 printf "$STATUS"
 }

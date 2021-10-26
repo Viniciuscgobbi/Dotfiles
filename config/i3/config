@@ -175,7 +175,7 @@ gaps outer 3
 # finds out, if available)
 
 # Roda o comando para tirar prints da tela
-bindsym Print exec shot -cr
+bindsym Print exec flameshot gui
 
 # Inicia a polybar junto com o sistema
 exec polybar_run
@@ -185,7 +185,7 @@ exec setxkbmap -model abnt2 -layout br
 exec nitrogen --restore 
 exec dunst 
 exec picom
-exec wal -i ~/Dotfiles/wallpaper/712353.jpg
+exec wal -i ~/Documentos/Dotfiles/wallpaper/loki.jpeg
 
 #smart_borders on
 #smart_borders no_gaps
