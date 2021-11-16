@@ -10,7 +10,7 @@
 ----------------------------------------
 Fotos:
 
-![](https://github.com/Androwinbr/Dotfiles/blob/master/2021-10-26_17-15.png?raw=true)
+![](https://cdn.discordapp.com/attachments/806642907263139850/910242879321022514/unknown.png)
 
 ------------------------------------------
 
